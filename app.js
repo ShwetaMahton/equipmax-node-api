@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-app.get("/equipmax", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Welcome to  application." });
 });
 app.post("/equipmax", (req,res)=>{
@@ -42,9 +42,9 @@ app.post("/equipmax", (req,res)=>{
   });
 
 })
-app.post("/equipmax", (req,res)=>{
+app.get("/equipmax", (req,res)=>{
   console.log(req.body);
-  con.query('insert into checklist (checklistField,checklistDataTypeFK,isMandatory,isActive,) values(wind ,3, 1,1) ', function (err, result) {
+  con.query('insert into checklist (checklistField,checklistDataTypeFK,isMandatory,isActive) values("wind" ,3, 1,1) ', function (err, result) {
     if (err) throw err; res.send(JSON.stringify(result))
   });
 
